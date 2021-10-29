@@ -8,14 +8,15 @@
   --border-radius: 8px;
 
   /* colors */
-  --primary: lightgray;
+  --primary: #ebebeb;
   --inputField: darkgray;
   --resultField: gray;
   --operation: #303030;
   --value: #1085e5;
   --clear: #dca54c;
   --contrast-bright: #fff;
-  --shadow: gray;
+  --shadow: darkgray;
+  --number-button: lightgray;
 }
 
 body {
@@ -24,7 +25,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -45,7 +47,7 @@ body {
   }
 }
 
-.input {
+.inputfield {
   margin: 5px 5px 0 5px;
   background-color: var(--inputField);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -56,7 +58,7 @@ body {
   grid-row-end: 2;
 }
 
-.result {
+.resultfield {
   margin: 0 5px 5px 5px;
   background-color: var(--resultField);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -69,7 +71,7 @@ body {
 
 .button {
   margin: 5px;
-  background-color: var(--inputField);
+  background-color: var(--number-button);
   transform: translateY(-2px);
   box-shadow: var(--shadow) 0 5px;
   transition: 0.1s;
