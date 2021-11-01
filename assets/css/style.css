@@ -22,8 +22,8 @@
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,17 +51,17 @@ body {
 
 .field {
   font-family: monospace;
+  padding: 0 5px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
 .inputfield {
   margin: 5px 5px 0 5px;
-  padding: 0 5px;
   background-color: var(--inputField);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   text-align: right;
-  display: flex;
-  justify-content: right;
-  align-items: center;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
@@ -72,6 +72,7 @@ body {
   margin: 0 5px 5px 5px;
   background-color: var(--resultField);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+  font-size: 42px;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 2;
