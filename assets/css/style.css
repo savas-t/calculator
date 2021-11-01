@@ -9,16 +9,16 @@
   /* colors */
   --text: #404040;
   --primary: #ebebeb;
-  --inputField: darkgray;
-  --resultField: gray;
+  --inputField: #a9a9a9;
+  --resultField: #808080;
   --operation: #303030;
   --value: #1085e5;
   --clear: #dca54c;
   --contrast-bright: #fff;
-  --shadow: darkgray;
+  --shadow: #a9a9a9;
   --shadow-operation: #505050;
   --shadow-clear: #aa7622;
-  --number-button: lightgray;
+  --number-button: #d3d3d3;
 }
 
 body {
@@ -51,24 +51,22 @@ body {
 
 .field {
   font-family: monospace;
+  text-align: right;
   padding: 0 5px;
   display: flex;
   justify-content: right;
   align-items: center;
 }
-
-.inputfield {
+.field--input {
   margin: 5px 5px 0 5px;
   background-color: var(--inputField);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  text-align: right;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
 }
-
-.resultfield {
+.field--result {
   margin: 0 5px 5px 5px;
   background-color: var(--resultField);
   border-radius: 0 0 var(--border-radius) var(--border-radius);

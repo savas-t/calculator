@@ -55,35 +55,35 @@ body {
 
 .field {
   font-family: monospace;
+  text-align: right;
   padding: 0 5px;
 
   display: flex;
   justify-content: right;
   align-items: center;
-}
 
-.inputfield {
-  margin: 5px 5px 0 5px;
-  background-color: var(--inputField);
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  text-align: right;
+  &--input {
+    margin: 5px 5px 0 5px;
+    background-color: var(--inputField);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
 
-.resultfield {
-  margin: 0 5px 5px 5px;
-  background-color: var(--resultField);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  font-size: 42px;
+  &--result {
+    margin: 0 5px 5px 5px;
+    background-color: var(--resultField);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    font-size: 42px;
 
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
 }
 
 .button {
