@@ -43,10 +43,11 @@ body {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow) 0 20px;
   color: var(--text);
+  cursor: pointer;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 40px 100px 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 40px 80px 1fr 1fr 1fr 1fr 1fr;
 
   & > * {
     border-radius: var(--border-radius);
@@ -56,19 +57,19 @@ body {
 .field {
   font-family: monospace;
   text-align: right;
-  padding: 0 5px;
+  padding: 5px 5px;
+  white-space: nowrap;
+  overflow: scroll;
+  cursor: text;
 
-  display: flex;
-  justify-content: right;
-  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
 
   &--input {
     margin: 5px 5px 0 5px;
     background-color: var(--inputField);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 
-    grid-column-start: 1;
-    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
   }
@@ -79,15 +80,13 @@ body {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     font-size: 42px;
 
-    grid-column-start: 1;
-    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
   }
 }
 
 .button {
-  margin: 5px;
+  margin: 7px;
   background-color: var(--number-button);
   transform: translateY(-2px);
   box-shadow: var(--shadow) 0 5px;
