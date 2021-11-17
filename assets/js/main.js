@@ -40,8 +40,8 @@ function isOperator(argument) {
 function addArgument(argument) {
   // adds 'argument' to myArguments array
 
-  // don't add 'NaN
-  if (argument) {
+  // don't add 'NaN'
+  if (argument || argument == 0) {
     myArguments.push(argument)
   }
 }
