@@ -59,15 +59,19 @@ body {
   cursor: text;
   grid-column-start: 1;
   grid-column-end: 5;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
 }
-.field--input {
+.field--info {
   margin: 5px 5px 0 5px;
   background-color: var(--inputField);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   grid-row-start: 1;
   grid-row-end: 2;
 }
-.field--result {
+.field--main {
   margin: 0 5px 5px 5px;
   background-color: var(--resultField);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -90,14 +94,28 @@ body {
   background-color: var(--clear);
   box-shadow: var(--shadow-clear) 0 5px;
 }
+.button--clear:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-clear) 0 2px;
+}
 .button--op {
   background-color: var(--operation);
   color: var(--contrast-bright);
   box-shadow: var(--shadow-operation) 0 5px;
 }
+.button--op:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-operation) 0 2px;
+}
+.button--equal {
+  background-color: var(--operation);
+  color: var(--contrast-bright);
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
 .button:active {
-  transform: translateY(2px);
-  box-shadow: var(--shadow) 0 0;
+  transform: translateY(1px);
+  box-shadow: var(--shadow) 0 2px;
 }
 
 /*# sourceMappingURL=style.css.map */
