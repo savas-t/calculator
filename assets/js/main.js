@@ -7,6 +7,8 @@ const infoField = calculator.querySelector('.field--info')
 const inputButtons = calculator.querySelectorAll('[data-type="input"]')
 const operatorButtons = calculator.querySelectorAll('.button--op')
 const equalButton = calculator.querySelector('.button--equal')
+const clearAllButton = calculator.querySelector('.button--clear-all')
+const clearEntryButton = calculator.querySelector('.button--clear-entry')
 
 let myArguments = []      // array of arguments
 let operator              // chosen operator
@@ -59,7 +61,8 @@ function handleOperator() {
   operator = this.dataset.type // set operator
   addArgument(parseFloat(`${mainField.innerHTML}`))
 
-  if (isOperator(myArguments[myArguments.lastIndexOf])) {
+  // if last element of myArguments array is already an operator, don't add another one
+  if (!isOperator(myArguments[myArguments.length - 1])) {
     addArgument(`${operator}`)
   }
 
@@ -82,7 +85,6 @@ function updateMainField() {
 
   infoField.innerHTML = myArguments.join(' ')
   mainField.innerHTML = ''
-
 }
 
 
@@ -91,4 +93,16 @@ function updateMainField() {
 inputButtons.forEach(inputButton => inputButton.addEventListener('click', handleInput))
 operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', handleOperator))
 equalButton.addEventListener('click', handleEqual)
+
+clearAllButton.addEventListener('click', () => {
+  myArguments = []
+  infoField.innerHTML = ''
+  mainField.innerHTML = ''
+})
+
+clearEntryButton.addEventListener('click', () => {
+  let string = mainField.innerHTML
+  mainField.innerHTML = string.substring(0, string.length - 1)
+})
+
 
