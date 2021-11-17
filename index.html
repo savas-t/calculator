@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Savas' Calculator</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-  <script src="./assets/js/main.js"></script>
 
   <div class="calculator">
-    <div class="field field--input"><p class="input"></p></div>
-    <div class="field field--result"><p class="result"></p></div>
+    <div class="field field--info">
+    </div>
+    <div class="field field--main">
+    </div>
 
-    <div id="clear-all" class="button button--clear">AC</div>
-    <div id="clear-entry" class="button button--clear">CE</div>
-    <div id="modulo" class="button button--op" data-type="operation">mod</div>
-    <div id="division" class="button button--op" data-type="operation">:</div>
-
-    <div class="button" data-type="input">1</div>
-    <div class="button" data-type="input">2</div>
-    <div class="button" data-type="input">3</div>
-    <div id="multiplication" class="button button--op" data-type="operation">x</div>
-
-    <div class="button" data-type="input">4</div>
-    <div class="button" data-type="input">5</div>
-    <div class="button" data-type="input">6</div>
-    <div id="subtraction" class="button button--op" data-type="operation">-</div>
+    <div class="button button--clear button--clear-all">AC</div>
+    <div class="button button--clear button--clear-entry">CE</div>
+    <div class="button button--op" data-type="%">mod</div>
+    <div class="button button--op" data-type="/">:</div>
 
     <div class="button" data-type="input">7</div>
     <div class="button" data-type="input">8</div>
     <div class="button" data-type="input">9</div>
-    <div id="addition" class="button button--op" data-type="operation">+</div>
+    <div class="button button--op" data-type="*">x</div>
 
-    <div class="button" data-type="input">&#x1D6D1;</div>
+    <div class="button" data-type="input">4</div>
+    <div class="button" data-type="input">5</div>
+    <div class="button" data-type="input">6</div>
+    <div class="button button--op" data-type="-">-</div>
+
+    <div class="button" data-type="input">1</div>
+    <div class="button" data-type="input">2</div>
+    <div class="button" data-type="input">3</div>
+    <div class="button button--op" data-type="+">+</div>
+
     <div class="button" data-type="input">0</div>
     <div class="button" data-type="input">.</div>
-    <div id="equal" class="button button--op">=</div>
+    <div class="button button--equal">=</div>
   </div>
 
+  <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

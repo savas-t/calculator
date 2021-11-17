@@ -1,87 +1,108 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  /* VARIABLES */
+/* variables */
 
-  // doc elements
-  const calc = document.querySelector('.calculator')
-  const inputField = calc.querySelector('.field--input')
-  const resultField = calc.querySelector('.field--result')
-  const inputButtons = calc.querySelectorAll('[data-type="input"]')
-  const operationButtons = calc.querySelectorAll('[data-type="operation"]')
-  const buttonClearAll = calc.querySelector('#clear-all')
-  const buttonClearEntry = calc.querySelector('#clear-entry')
-  const buttonEqual = calc.querySelector('#equal')
-  
-  // operator variables
-  let a
-  let b
-  let operation
-  let OperatorIsSecond = false
+const calculator = document.querySelector('.calculator')
+
+const mainField = calculator.querySelector('.field--main')
+const infoField = calculator.querySelector('.field--info')
+const inputButtons = calculator.querySelectorAll('[data-type="input"]')
+const operatorButtons = calculator.querySelectorAll('.button--op')
+const equalButton = calculator.querySelector('.button--equal')
+const clearAllButton = calculator.querySelector('.button--clear-all')
+const clearEntryButton = calculator.querySelector('.button--clear-entry')
+
+let myArguments = []      // array of arguments
+let operator              // chosen operator
 
 
-  /* FUNCTIONS */
+/* functions */
 
-  function isNumeric(x) {
-    // returns if x is a numeric value or not
-    return !isNaN(parseFloat(x)) && isFinite(x)
+function isNumeric(x) {
+  // true if 'x' is a numeric value, false if not
+
+  return !isNaN(parseFloat(x)) && isFinite(x);
+}
+
+function isOperator(argument) {
+  // true if 'argument' is an operation of the calculator, false if not
+
+  let result = false
+  Array.from(operatorButtons)
+    .map(operatorButton => operatorButton.dataset.type)
+    .forEach(operatorButton => {
+      if (operatorButton == argument) {
+        result = true
+      }
+    })
+
+  return result
+}
+
+function addArgument(argument) {
+  // adds 'argument' to myArguments array
+
+  // don't add 'NaN'
+  if (argument || argument == 0) {
+    myArguments.push(argument)
+  }
+}
+
+function handleInput() {
+  // callback for input button event listener
+
+  if (!isNumeric(mainField.innerHTML)) {
+    mainField.innerHTML = ''
+  }
+  mainField.innerHTML = mainField.innerHTML + this.innerHTML
+}
+
+function handleOperator() {
+  // callback for operator button event listener
+
+  operator = this.dataset.type // set operator
+  addArgument(parseFloat(`${mainField.innerHTML}`))
+
+  // if last element of myArguments array is already an operator, don't add another one
+  if (!isOperator(myArguments[myArguments.length - 1])) {
+    addArgument(`${operator}`)
   }
 
-  function clearEntry() {
-    //clears last entry of inputfield
-    
-  }
+  updateMainField()
+}
 
-  function clearAll() {
-    // clears the input and result field of the calculator
-    inputField.innerHTML = ''
-    resultField.innerHTML = ''
-  }
+function handleEqual() {
+  // callback for equal button event listener
 
-  function calculate(a, b, operation) {
-    // a, b: operators
-    //operation: required operation
+  addArgument(parseFloat(`${mainField.innerHTML}`))  // add last argument to array
+  updateMainField()
 
-    switch(operation) {
-      case 'addition': return `${a + b}`
-      case 'subtraction': return `${a - b}`
-      case 'multiplication': return `${a * b}`
-      case 'division':
-        if (b == 0) {
-          return 'Math Error: Cannot divide by 0'
-        }
-        return `${a / b}`;
-      case 'modulo':
-        if (b == 0) {
-          return 'Math Error: Cannot divide by 0'
-        }
-        return `${a % b}`
-    }
-  }
+  const result = myArguments.join(' ')
+  mainField.innerHTML = eval(result)
+  myArguments = []
+}
 
-  /* EVENT LISTENERS */
-  
-  inputButtons.forEach(inputButton => {
-    inputButton.addEventListener('click', () => inputField.innerHTML += inputButton.innerHTML)
-  })
+function updateMainField() {
+  // updates main field of calculator
 
-  buttonClearAll.addEventListener('click', clearAll)
+  infoField.innerHTML = myArguments.join(' ')
+  mainField.innerHTML = ''
+}
 
-  operationButtons.forEach(operationButton => operationButton.addEventListener('click', () => {
-    // if there was a result before, we choose that as an input
-    if (resultField.innerHTML != '' && isNumeric(inputField.innerHTML)) {
-      inputField.innerHTML = resultField.innerHTML
-      resultField.innerHTML = ''
-    } else {
-      resultField.innerHTML = ''
-    }
 
-    a = parseFloat(`${inputField.innerHTML}`)
-    operation = `${operationButton.id}`
+/* event listeners */
 
-    inputField.innerHTML += `${operationButton.innerHTML}`
-  }))
+inputButtons.forEach(inputButton => inputButton.addEventListener('click', handleInput))
+operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', handleOperator))
+equalButton.addEventListener('click', handleEqual)
 
-  buttonEqual.addEventListener('click', () => {
-    resultField.innerHTML = `${calculate(a, b, operation)}`
-  })
+clearAllButton.addEventListener('click', () => {
+  myArguments = []
+  infoField.innerHTML = ''
+  mainField.innerHTML = ''
 })
+
+clearEntryButton.addEventListener('click', () => {
+  let string = mainField.innerHTML
+  mainField.innerHTML = string.substring(0, string.length - 1)
+})
+
+
