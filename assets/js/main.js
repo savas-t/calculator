@@ -90,8 +90,8 @@ function updateMainField() {
 function checkResult(result) {
   // checks if 'result' is 'infinity' or 'NaN'
 
-  if ((result === Infinity || !result) && result != 0) {
-    return 'Math Error'
+  if ((result === Infinity || result === -Infinity || !result) && result != 0) {
+    return 'Division by 0!'
   }
 
   return result
