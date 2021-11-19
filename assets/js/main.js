@@ -76,7 +76,7 @@ function handleEqual() {
   updateMainField()
 
   const result = myArguments.join(' ')
-  mainField.innerHTML = eval(result)
+  mainField.innerHTML = checkResult(eval(result))
   myArguments = []
 }
 
@@ -85,6 +85,16 @@ function updateMainField() {
 
   infoField.innerHTML = myArguments.join(' ')
   mainField.innerHTML = ''
+}
+
+function checkResult(result) {
+  // checks if 'result' is 'infinity' or 'NaN'
+
+  if ((result === Infinity || result === -Infinity || !result) && result != 0) {
+    return 'Division by 0!'
+  }
+
+  return result
 }
 
 
