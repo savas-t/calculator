@@ -66,22 +66,22 @@ function handleOperator() {
     addArgument(`${operator}`)
   }
 
-  updateMainField()
+  updateFields()
 }
 
 function handleEqual() {
   // callback for equal button event listener
 
   addArgument(parseFloat(`${mainField.innerHTML}`))  // add last argument to array
-  updateMainField()
+  updateFields()
 
   const result = myArguments.join(' ')
   mainField.innerHTML = checkResult(eval(result))
   myArguments = []
 }
 
-function updateMainField() {
-  // updates main field of calculator
+function updateFields() {
+  // updates both main field and input field of calculator
 
   infoField.innerHTML = myArguments.join(' ')
   mainField.innerHTML = ''
@@ -90,8 +90,8 @@ function updateMainField() {
 function checkResult(result) {
   // checks if 'result' is 'infinity' or 'NaN'
 
-  if ((result === Infinity || result === -Infinity || !result) && result != 0) {
-    return 'Division by 0!'
+  if ((!isFinite(result) || !result) && result != 0) {
+    return 'Math Error'
   }
 
   return result
