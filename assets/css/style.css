@@ -90,6 +90,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.button:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow) 0 2px;
+}
 .button--clear {
   background-color: var(--clear);
   box-shadow: var(--shadow-clear) 0 5px;
@@ -112,10 +116,6 @@ body {
   color: var(--contrast-bright);
   grid-column-start: 3;
   grid-column-end: 5;
-}
-.button:active {
-  transform: translateY(1px);
-  box-shadow: var(--shadow) 0 2px;
 }
 
 /*# sourceMappingURL=style.css.map */
