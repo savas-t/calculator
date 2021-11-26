@@ -115,4 +115,8 @@ clearEntryButton.addEventListener('click', () => {
   mainField.innerHTML = string.substring(0, string.length - 1)
 })
 
+setTimeout(() => {
+  calculator.classList.remove('inactive')
+}, 300)
+
 

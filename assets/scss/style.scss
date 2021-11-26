@@ -14,11 +14,11 @@
   --resultField: #808080;
   --operation: #303030;
   --value: #1085e5;
-  --clear: #dca54c;
+  --clear: #ffdd57;
   --contrast-bright: #fff;
   --shadow: #a9a9a9;
   --shadow-operation: #505050;
-  --shadow-clear: #aa7622;
+  --shadow-clear: #cca300;
   --number-button: #d3d3d3;
 }
 
@@ -31,7 +31,6 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-weight: 700;
-  background: var(--clear)
 }
 
 .calculator {
@@ -45,6 +44,10 @@ body {
   box-shadow: var(--shadow) 0 20px;
   color: var(--text);
   cursor: pointer;
+  transform: translateY(0);
+  opacity: 1;
+  transition: 1s;
+  pointer-events: all;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -86,6 +89,12 @@ body {
     grid-row-start: 2;
     grid-row-end: 3;
   }
+}
+
+.inactive {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
 
 .button {
