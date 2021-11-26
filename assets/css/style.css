@@ -29,6 +29,7 @@ body {
   align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 700;
+  background: var(--clear);
 }
 
 .calculator {
@@ -55,7 +56,6 @@ body {
   text-align: right;
   padding: 5px 5px;
   white-space: nowrap;
-  overflow: scroll;
   cursor: text;
   grid-column-start: 1;
   grid-column-end: 5;
