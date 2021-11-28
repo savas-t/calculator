@@ -85,7 +85,7 @@ body {
 
 .inactive {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-50px);
   pointer-events: none;
 }
 
