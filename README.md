@@ -1,7 +1,8 @@
 # Calculator Web Application
 
-This is a simple JavaScript calculator browser application. 
-Try it out! -> https://savas-t.github.io/calculator.
+This is a simple JavaScript calculator browser application.
+
+Try it out @ https://savas-t.github.io/calculator.
 
 The purpouse of this project was to practice my JavaScript and CSS grid skills.
 

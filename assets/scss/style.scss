@@ -49,6 +49,12 @@ body {
   transition: 1s;
   pointer-events: all;
 
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 40px 80px 1fr 1fr 1fr 1fr 1fr;
