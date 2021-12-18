@@ -49,11 +49,7 @@ body {
   transition: 1s;
   pointer-events: all;
 
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
